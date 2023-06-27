@@ -19,13 +19,13 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend
-          imagePullPolicy: Never
+          image: abdoman/frontend
+          #imagePullPolicy: Never
           ports:
           - containerPort: 3000
         - name: backend
-          image: backend
-          imagePullPolicy: Never
+          image: abdoman/backend
+          #imagePullPolicy: Never
           ports:
           - containerPort: 4000
 
