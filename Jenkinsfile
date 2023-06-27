@@ -1,7 +1,9 @@
 pipeline {
   environment {
-    dockerimagename = "abdoman/frontend"
-    dockerImage = ""
+    dockerimage1name = "abdoman/frontend"
+    dockerimage2name = "abdoman/backend"
+    dockerImage1 = ""
+    dockerImage2 = ""
   }
   agent any
   stages {
@@ -13,18 +15,31 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage1 = docker.build dockerimage1name
+          dockerImage2 = docker.build dockerimage2name
         }
       }
     }
-    stage('Pushing Image') {
+    stage('Pushing Image 1') {
       environment {
                registryCredential = 'dockerhub-credentials'
            }
       steps{
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
+            dockerImage1.push("latest")
+          }
+        }
+      }
+    }
+    stage('Pushing Image 2') {
+      environment {
+               registryCredential = 'dockerhub-credentials'
+           }
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage2.push("latest")
           }
         }
       }
