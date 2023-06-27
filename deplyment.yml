@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-d
+  labels:
+      app: myapp
+      type: app
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      name: sre
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: frontend
+          image: frontend
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 3000
+        - name: backend
+          image: backend
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 4000
+
+
+

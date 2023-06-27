@@ -1,0 +1,10 @@
+version: '2'
+services:
+    frontend:
+        build: ./react
+        ports:
+            - "3000:3000"
+    backend:
+        build: ./server
+        ports:
+            - "4000:4000"
