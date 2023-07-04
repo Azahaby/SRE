@@ -1,4 +1,7 @@
 pipeline {
+
+  agent none
+  
   environment {
     dockerimage1name = "abdoman/frontend"
     dockerimage2name = "abdoman/backend"
