@@ -7,16 +7,6 @@ pipeline {
   }
   stages {
 
-    stage('Docker node test') {
-{
-          // Set both label and image
-          label 'docker'
-          image 'node:7-alpine'
-          args '--name docker-node' // list any args
-        
-      
-    }
-
     stage('Checkout Source') {
       steps {
         git 'https://github.com/Azahaby/SRE.git'
