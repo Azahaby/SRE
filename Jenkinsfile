@@ -1,6 +1,6 @@
 pipeline {
 
-  agent none
+  agent  any
   
   environment {
     dockerimage1name = "abdoman/frontend"
