@@ -8,7 +8,7 @@ pipeline {
     dockerImage1 = ""
     dockerImage2 = ""
   }
-  agent any
+
   stages {
     stage('Checkout Source') {
       steps {
