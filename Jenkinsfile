@@ -24,14 +24,6 @@ pipeline {
         sh 'node --version'
       }
     }
-    stage('Docker maven test') {
-      agent {
-        docker {
-          // Set both label and image
-          label 'docker'
-          image 'maven:3-alpine'
-        }
-      }
 
     stage('Checkout Source') {
       steps {
@@ -78,5 +70,4 @@ pipeline {
       }
     }
   }
-}
 }
